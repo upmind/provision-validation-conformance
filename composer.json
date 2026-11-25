@@ -1,0 +1,6 @@
+{
+    "name": "upmind/provision-validation-conformance",
+    "description": "Validation conformance cases for Upmind provision data sets",
+    "type": "library",
+    "license": "GPL-3.0-only"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@upmind/provision-validation-conformance",
+  "version": "1.0.0",
+  "description": "Validation conformance cases for Upmind provision data sets",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upmind/provision-validation-conformance.git"
+  },
+  "files": [
+    "validation",
+    "schema.json"
+  ],
+  "scripts": {
+    "test": "node scripts/check.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0"
+  }
+}
