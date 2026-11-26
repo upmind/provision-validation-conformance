@@ -1,0 +1,114 @@
+{
+  "rule": "max_digits",
+  "cases": [
+    {
+      "name": "digit count at the maximum",
+      "rules": {
+        "value": [
+          "max_digits:3"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": true
+    },
+    {
+      "name": "digit count under the maximum",
+      "rules": {
+        "value": [
+          "max_digits:3"
+        ]
+      },
+      "data": {
+        "value": "1"
+      },
+      "valid": true
+    },
+    {
+      "name": "digit count over the maximum",
+      "rules": {
+        "value": [
+          "max_digits:3"
+        ]
+      },
+      "data": {
+        "value": 1234
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "max_digits"
+        ]
+      }
+    },
+    {
+      "name": "negative number",
+      "rules": {
+        "value": [
+          "max_digits:3"
+        ]
+      },
+      "data": {
+        "value": "-12"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "max_digits"
+        ]
+      }
+    },
+    {
+      "name": "decimal point",
+      "rules": {
+        "value": [
+          "max_digits:3"
+        ]
+      },
+      "data": {
+        "value": "1.2"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "max_digits"
+        ]
+      }
+    },
+    {
+      "name": "letters",
+      "rules": {
+        "value": [
+          "max_digits:3"
+        ]
+      },
+      "data": {
+        "value": "ab"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "max_digits"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "max_digits:3"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "max_digits"
+        ]
+      }
+    }
+  ]
+}

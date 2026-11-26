@@ -1,0 +1,162 @@
+{
+  "rule": "base64",
+  "cases": [
+    {
+      "name": "encoded string",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": "aGVsbG8="
+      },
+      "valid": true
+    },
+    {
+      "name": "encoded string without padding characters needed",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": "aGVsbG8h"
+      },
+      "valid": true
+    },
+    {
+      "name": "missing padding",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": "aGVsbG8"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "base64"
+        ]
+      }
+    },
+    {
+      "name": "character outside the alphabet",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": "aGVs*G8="
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "base64"
+        ]
+      }
+    },
+    {
+      "name": "URL-safe alphabet",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": "_-8="
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "base64"
+        ]
+      }
+    },
+    {
+      "name": "standard alphabet with plus and slash",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": "/+8="
+      },
+      "valid": true
+    },
+    {
+      "name": "plain text",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": "hello world"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "base64"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": 1234
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "base64"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "base64"
+        ]
+      }
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "base64"
+        ]
+      },
+      "data": {
+        "value": [
+          "aGVsbG8="
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "base64"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "rule": "sometimes",
+  "cases": [
+    {
+      "name": "missing field skips all rules",
+      "rules": {
+        "value": [
+          "sometimes",
+          "required",
+          "integer"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "present field is validated",
+      "rules": {
+        "value": [
+          "sometimes",
+          "required",
+          "integer"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    },
+    {
+      "name": "present null fails required",
+      "rules": {
+        "value": [
+          "sometimes",
+          "required"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required"
+        ]
+      }
+    },
+    {
+      "name": "present empty string fails required",
+      "rules": {
+        "value": [
+          "sometimes",
+          "required"
+        ]
+      },
+      "data": {
+        "value": ""
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required"
+        ]
+      }
+    },
+    {
+      "name": "present valid value",
+      "rules": {
+        "value": [
+          "sometimes",
+          "required",
+          "integer"
+        ]
+      },
+      "data": {
+        "value": 5
+      },
+      "valid": true
+    },
+    {
+      "name": "without sometimes, a missing field fails required",
+      "rules": {
+        "value": [
+          "required",
+          "integer"
+        ]
+      },
+      "data": {},
+      "valid": false,
+      "failed": {
+        "value": [
+          "required"
+        ]
+      }
+    },
+    {
+      "name": "missing field skips an implicit rule",
+      "rules": {
+        "value": [
+          "sometimes",
+          "accepted"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "missing nested field skips all rules",
+      "rules": {
+        "options.name": [
+          "sometimes",
+          "required"
+        ]
+      },
+      "data": {
+        "options": []
+      },
+      "valid": true
+    }
+  ]
+}

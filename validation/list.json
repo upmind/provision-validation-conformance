@@ -1,0 +1,142 @@
+{
+  "rule": "list",
+  "cases": [
+    {
+      "name": "list of strings",
+      "rules": {
+        "value": [
+          "list"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "value": [
+          "list"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": true
+    },
+    {
+      "name": "list of arrays",
+      "rules": {
+        "value": [
+          "list"
+        ]
+      },
+      "data": {
+        "value": [
+          {
+            "a": 1
+          },
+          {
+            "a": 2
+          }
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "array with string keys",
+      "rules": {
+        "value": [
+          "list"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1,
+          "b": 2
+        }
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "list"
+        ]
+      }
+    },
+    {
+      "name": "array with numeric keys which do not start at zero",
+      "rules": {
+        "value": [
+          "list"
+        ]
+      },
+      "data": {
+        "value": {
+          "1": "a",
+          "2": "b"
+        }
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "list"
+        ]
+      }
+    },
+    {
+      "name": "string value",
+      "rules": {
+        "value": [
+          "list"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "list"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "list"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "list"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "list"
+        ]
+      },
+      "data": {
+        "value": 1
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "list"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "rule": "required_array_keys",
+  "cases": [
+    {
+      "name": "array has the key",
+      "rules": {
+        "value": [
+          "required_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "array has all keys",
+      "rules": {
+        "value": [
+          "required_array_keys:a,b"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1,
+          "b": 2,
+          "c": 3
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "array has a key with a null value",
+      "rules": {
+        "value": [
+          "required_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": null
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "array does not have one of the keys",
+      "rules": {
+        "value": [
+          "required_array_keys:a,b"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1
+        }
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_array_keys"
+        ]
+      }
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "value": [
+          "required_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_array_keys"
+        ]
+      }
+    },
+    {
+      "name": "list with a numeric key",
+      "rules": {
+        "value": [
+          "required_array_keys:0"
+        ]
+      },
+      "data": {
+        "value": [
+          "x"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "string value",
+      "rules": {
+        "value": [
+          "required_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_array_keys"
+        ]
+      }
+    },
+    {
+      "name": "missing field",
+      "rules": {
+        "value": [
+          "required_array_keys:a"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "required_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_array_keys"
+        ]
+      }
+    }
+  ]
+}

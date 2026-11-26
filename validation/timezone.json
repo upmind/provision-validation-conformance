@@ -1,0 +1,184 @@
+{
+  "rule": "timezone",
+  "cases": [
+    {
+      "name": "UTC",
+      "rules": {
+        "value": [
+          "timezone"
+        ]
+      },
+      "data": {
+        "value": "UTC"
+      },
+      "valid": true
+    },
+    {
+      "name": "region and city",
+      "rules": {
+        "value": [
+          "timezone"
+        ]
+      },
+      "data": {
+        "value": "Europe/London"
+      },
+      "valid": true
+    },
+    {
+      "name": "three-part identifier",
+      "rules": {
+        "value": [
+          "timezone"
+        ]
+      },
+      "data": {
+        "value": "America/Argentina/Buenos_Aires"
+      },
+      "valid": true
+    },
+    {
+      "name": "lower case identifier",
+      "rules": {
+        "value": [
+          "timezone"
+        ]
+      },
+      "data": {
+        "value": "europe/london"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "timezone"
+        ]
+      }
+    },
+    {
+      "name": "offset",
+      "rules": {
+        "value": [
+          "timezone"
+        ]
+      },
+      "data": {
+        "value": "+01:00"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "timezone"
+        ]
+      }
+    },
+    {
+      "name": "unknown identifier",
+      "rules": {
+        "value": [
+          "timezone"
+        ]
+      },
+      "data": {
+        "value": "Mars/Phobos"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "timezone"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "timezone"
+        ]
+      },
+      "data": {
+        "value": 1
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "timezone"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "timezone"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "timezone"
+        ]
+      }
+    },
+    {
+      "name": "group parameter contains the identifier",
+      "rules": {
+        "value": [
+          "timezone:europe"
+        ]
+      },
+      "data": {
+        "value": "Europe/London"
+      },
+      "valid": true
+    },
+    {
+      "name": "group parameter does not contain the identifier",
+      "rules": {
+        "value": [
+          "timezone:europe"
+        ]
+      },
+      "data": {
+        "value": "America/New_York"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "timezone"
+        ]
+      }
+    },
+    {
+      "name": "country parameter contains the identifier",
+      "rules": {
+        "value": [
+          "timezone:per_country,GB"
+        ]
+      },
+      "data": {
+        "value": "Europe/London"
+      },
+      "valid": true
+    },
+    {
+      "name": "country parameter does not contain the identifier",
+      "rules": {
+        "value": [
+          "timezone:per_country,GB"
+        ]
+      },
+      "data": {
+        "value": "Europe/Paris"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "timezone"
+        ]
+      }
+    }
+  ]
+}

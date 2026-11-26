@@ -1,0 +1,159 @@
+{
+  "rule": "in_array",
+  "cases": [
+    {
+      "name": "value is in the other array",
+      "rules": {
+        "value": [
+          "in_array:options.*"
+        ]
+      },
+      "data": {
+        "options": [
+          "a",
+          "b"
+        ],
+        "value": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "value is not in the other array",
+      "rules": {
+        "value": [
+          "in_array:options.*"
+        ]
+      },
+      "data": {
+        "options": [
+          "a",
+          "b"
+        ],
+        "value": "c"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array"
+        ]
+      }
+    },
+    {
+      "name": "value in another case",
+      "rules": {
+        "value": [
+          "in_array:options.*"
+        ]
+      },
+      "data": {
+        "options": [
+          "a",
+          "b"
+        ],
+        "value": "A"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array"
+        ]
+      }
+    },
+    {
+      "name": "integer value and string item",
+      "rules": {
+        "value": [
+          "in_array:options.*"
+        ]
+      },
+      "data": {
+        "options": [
+          "1",
+          "2"
+        ],
+        "value": 1
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array"
+        ]
+      }
+    },
+    {
+      "name": "other array is empty",
+      "rules": {
+        "value": [
+          "in_array:options.*"
+        ]
+      },
+      "data": {
+        "options": [],
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array"
+        ]
+      }
+    },
+    {
+      "name": "other array is missing",
+      "rules": {
+        "value": [
+          "in_array:options.*"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array"
+        ]
+      }
+    },
+    {
+      "name": "values of a nested key",
+      "rules": {
+        "value": [
+          "in_array:items.*.id"
+        ]
+      },
+      "data": {
+        "items": [
+          {
+            "id": "a"
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "value": "b"
+      },
+      "valid": true
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "in_array:options.*"
+        ]
+      },
+      "data": {
+        "options": [
+          "a"
+        ],
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array"
+        ]
+      }
+    }
+  ]
+}

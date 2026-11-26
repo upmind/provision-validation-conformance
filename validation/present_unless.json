@@ -1,0 +1,87 @@
+{
+  "rule": "present_unless",
+  "cases": [
+    {
+      "name": "other field matches and field is missing",
+      "rules": {
+        "value": [
+          "present_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match and field is set",
+      "rules": {
+        "value": [
+          "present_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match and field is null",
+      "rules": {
+        "value": [
+          "present_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": null
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match and field is missing",
+      "rules": {
+        "value": [
+          "present_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing and field is missing",
+      "rules": {
+        "value": [
+          "present_unless:type,a"
+        ]
+      },
+      "data": {},
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field matches one of several values",
+      "rules": {
+        "value": [
+          "present_unless:type,a,b"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": true
+    }
+  ]
+}

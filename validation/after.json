@@ -1,0 +1,219 @@
+{
+  "rule": "after",
+  "cases": [
+    {
+      "name": "date after the fixed date",
+      "rules": {
+        "value": [
+          "after:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-16"
+      },
+      "valid": true
+    },
+    {
+      "name": "date equal to the fixed date",
+      "rules": {
+        "value": [
+          "after:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after"
+        ]
+      }
+    },
+    {
+      "name": "date before the fixed date",
+      "rules": {
+        "value": [
+          "after:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-14"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after"
+        ]
+      }
+    },
+    {
+      "name": "date and time after the fixed date",
+      "rules": {
+        "value": [
+          "after:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15 00:00:01"
+      },
+      "valid": true
+    },
+    {
+      "name": "ISO 8601 date and time after the fixed date",
+      "rules": {
+        "value": [
+          "after:2024-01-15T12:00:00Z"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15T12:00:01Z"
+      },
+      "valid": true
+    },
+    {
+      "name": "date after the other field",
+      "rules": {
+        "value": [
+          "after:start"
+        ]
+      },
+      "data": {
+        "start": "2024-01-15",
+        "value": "2024-01-16"
+      },
+      "valid": true
+    },
+    {
+      "name": "date equal to the other field",
+      "rules": {
+        "value": [
+          "after:start"
+        ]
+      },
+      "data": {
+        "start": "2024-01-15",
+        "value": "2024-01-15"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing",
+      "rules": {
+        "value": [
+          "after:start"
+        ]
+      },
+      "data": {
+        "value": "2024-01-16"
+      },
+      "valid": true
+    },
+    {
+      "name": "with date_format, date after the fixed date",
+      "rules": {
+        "value": [
+          "date_format:d/m/Y",
+          "after:15/01/2024"
+        ]
+      },
+      "data": {
+        "value": "16/01/2024"
+      },
+      "valid": true
+    },
+    {
+      "name": "with date_format, date before the fixed date",
+      "rules": {
+        "value": [
+          "date_format:d/m/Y",
+          "after:15/01/2024"
+        ]
+      },
+      "data": {
+        "value": "14/01/2024"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after"
+        ]
+      }
+    },
+    {
+      "name": "not a date",
+      "rules": {
+        "value": [
+          "after:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "after:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": 20240116
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "after:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after"
+        ]
+      }
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "after:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": [
+          "2024-01-16"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after"
+        ]
+      }
+    }
+  ]
+}

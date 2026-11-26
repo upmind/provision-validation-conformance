@@ -1,0 +1,82 @@
+{
+  "rule": "exclude",
+  "cases": [
+    {
+      "name": "later rules do not run",
+      "rules": {
+        "value": [
+          "exclude",
+          "integer"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "earlier rules run",
+      "rules": {
+        "value": [
+          "integer",
+          "exclude"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    },
+    {
+      "name": "earlier rules pass",
+      "rules": {
+        "value": [
+          "integer",
+          "exclude"
+        ]
+      },
+      "data": {
+        "value": 5
+      },
+      "valid": true
+    },
+    {
+      "name": "missing field with a later required rule",
+      "rules": {
+        "value": [
+          "exclude",
+          "required"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "other fields are validated",
+      "rules": {
+        "value": [
+          "exclude",
+          "integer"
+        ],
+        "other": [
+          "integer"
+        ]
+      },
+      "data": {
+        "value": "abc",
+        "other": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "other": [
+          "integer"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "rule": "uppercase",
+  "cases": [
+    {
+      "name": "upper case letters",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": "ABC"
+      },
+      "valid": true
+    },
+    {
+      "name": "upper case letters and digits",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": "ABC123"
+      },
+      "valid": true
+    },
+    {
+      "name": "mixed case",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": "AbC"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "uppercase"
+        ]
+      }
+    },
+    {
+      "name": "lower case",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "uppercase"
+        ]
+      }
+    },
+    {
+      "name": "digits only",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": "123"
+      },
+      "valid": true
+    },
+    {
+      "name": "non-ASCII upper case",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": "É"
+      },
+      "valid": true
+    },
+    {
+      "name": "non-ASCII lower case",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": "é"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "uppercase"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "uppercase"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "uppercase"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "uppercase"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "rule": "between",
+  "cases": [
+    {
+      "name": "string length in the range",
+      "rules": {
+        "value": [
+          "string",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "string length at the minimum",
+      "rules": {
+        "value": [
+          "string",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": "ab"
+      },
+      "valid": true
+    },
+    {
+      "name": "string length at the maximum",
+      "rules": {
+        "value": [
+          "string",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": "abcd"
+      },
+      "valid": true
+    },
+    {
+      "name": "string length under the minimum",
+      "rules": {
+        "value": [
+          "string",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "between"
+        ]
+      }
+    },
+    {
+      "name": "string length over the maximum",
+      "rules": {
+        "value": [
+          "string",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": "abcde"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "between"
+        ]
+      }
+    },
+    {
+      "name": "multibyte string counts characters",
+      "rules": {
+        "value": [
+          "string",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": "ééé"
+      },
+      "valid": true
+    },
+    {
+      "name": "numeric string without a numeric rule uses length",
+      "rules": {
+        "value": [
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": "100"
+      },
+      "valid": true
+    },
+    {
+      "name": "integer with a numeric rule in the range",
+      "rules": {
+        "value": [
+          "integer",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": 3
+      },
+      "valid": true
+    },
+    {
+      "name": "integer with a numeric rule over the maximum",
+      "rules": {
+        "value": [
+          "integer",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": 5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "between"
+        ]
+      }
+    },
+    {
+      "name": "numeric string with a numeric rule uses the number",
+      "rules": {
+        "value": [
+          "numeric",
+          "between:2,4"
+        ]
+      },
+      "data": {
+        "value": "3"
+      },
+      "valid": true
+    },
+    {
+      "name": "decimal with a numeric rule in the range",
+      "rules": {
+        "value": [
+          "numeric",
+          "between:1.5,2.5"
+        ]
+      },
+      "data": {
+        "value": 2.25
+      },
+      "valid": true
+    },
+    {
+      "name": "negative range",
+      "rules": {
+        "value": [
+          "numeric",
+          "between:-5,-1"
+        ]
+      },
+      "data": {
+        "value": -3
+      },
+      "valid": true
+    },
+    {
+      "name": "array item count in the range",
+      "rules": {
+        "value": [
+          "array",
+          "between:1,2"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "array item count over the maximum",
+      "rules": {
+        "value": [
+          "array",
+          "between:1,2"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "between"
+        ]
+      }
+    },
+    {
+      "name": "empty array under the minimum",
+      "rules": {
+        "value": [
+          "array",
+          "between:1,2"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "between"
+        ]
+      }
+    }
+  ]
+}

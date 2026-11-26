@@ -1,0 +1,89 @@
+{
+  "rule": "declined_if",
+  "cases": [
+    {
+      "name": "other field matches and value is false",
+      "rules": {
+        "value": [
+          "declined_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": false
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and value is string no",
+      "rules": {
+        "value": [
+          "declined_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": "no"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and value is true",
+      "rules": {
+        "value": [
+          "declined_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": true
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined_if"
+        ]
+      }
+    },
+    {
+      "name": "other field matches and field is missing",
+      "rules": {
+        "value": [
+          "declined_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined_if"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and value is true",
+      "rules": {
+        "value": [
+          "declined_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": true
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing and field is missing",
+      "rules": {
+        "value": [
+          "declined_if:type,a"
+        ]
+      },
+      "data": {},
+      "valid": true
+    }
+  ]
+}

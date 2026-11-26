@@ -1,0 +1,150 @@
+{
+  "rule": "not_regex",
+  "cases": [
+    {
+      "name": "value does not match",
+      "rules": {
+        "value": [
+          "not_regex:/^[0-9]+$/"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "value matches",
+      "rules": {
+        "value": [
+          "not_regex:/^[0-9]+$/"
+        ]
+      },
+      "data": {
+        "value": "123"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_regex"
+        ]
+      }
+    },
+    {
+      "name": "integer value matches",
+      "rules": {
+        "value": [
+          "not_regex:/^[0-9]+$/"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_regex"
+        ]
+      }
+    },
+    {
+      "name": "case-insensitive pattern matches",
+      "rules": {
+        "value": [
+          "not_regex:/^abc$/i"
+        ]
+      },
+      "data": {
+        "value": "ABC"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_regex"
+        ]
+      }
+    },
+    {
+      "name": "case-sensitive pattern does not match",
+      "rules": {
+        "value": [
+          "not_regex:/^abc$/"
+        ]
+      },
+      "data": {
+        "value": "ABC"
+      },
+      "valid": true
+    },
+    {
+      "name": "pattern with a pipe",
+      "rules": {
+        "value": [
+          "not_regex:/^(a|b)$/"
+        ]
+      },
+      "data": {
+        "value": "b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_regex"
+        ]
+      }
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "not_regex:/^[0-9]+$/"
+        ]
+      },
+      "data": {
+        "value": [
+          "abc"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_regex"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "not_regex:/^[0-9]+$/"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_regex"
+        ]
+      }
+    },
+    {
+      "name": "boolean value",
+      "rules": {
+        "value": [
+          "not_regex:/^[0-9]+$/"
+        ]
+      },
+      "data": {
+        "value": true
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_regex"
+        ]
+      }
+    }
+  ]
+}

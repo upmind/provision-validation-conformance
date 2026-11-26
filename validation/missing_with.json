@@ -1,0 +1,83 @@
+{
+  "rule": "missing_with",
+  "cases": [
+    {
+      "name": "other field is set and field is missing",
+      "rules": {
+        "value": [
+          "missing_with:other"
+        ]
+      },
+      "data": {
+        "other": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is set and field is set",
+      "rules": {
+        "value": [
+          "missing_with:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_with"
+        ]
+      }
+    },
+    {
+      "name": "other field is null and field is set",
+      "rules": {
+        "value": [
+          "missing_with:other"
+        ]
+      },
+      "data": {
+        "other": null,
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_with"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing and field is set",
+      "rules": {
+        "value": [
+          "missing_with:other"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "one of two other fields is set and field is set",
+      "rules": {
+        "value": [
+          "missing_with:a,b"
+        ]
+      },
+      "data": {
+        "b": "y",
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_with"
+        ]
+      }
+    }
+  ]
+}

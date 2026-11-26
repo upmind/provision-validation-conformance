@@ -1,0 +1,230 @@
+{
+  "rule": "gt",
+  "cases": [
+    {
+      "name": "number over the literal",
+      "rules": {
+        "value": [
+          "numeric",
+          "gt:5"
+        ]
+      },
+      "data": {
+        "value": 6
+      },
+      "valid": true
+    },
+    {
+      "name": "number equal to the literal",
+      "rules": {
+        "value": [
+          "numeric",
+          "gt:5"
+        ]
+      },
+      "data": {
+        "value": 5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gt"
+        ]
+      }
+    },
+    {
+      "name": "number under the literal",
+      "rules": {
+        "value": [
+          "numeric",
+          "gt:5"
+        ]
+      },
+      "data": {
+        "value": 4
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gt"
+        ]
+      }
+    },
+    {
+      "name": "numeric string over the literal",
+      "rules": {
+        "value": [
+          "numeric",
+          "gt:5"
+        ]
+      },
+      "data": {
+        "value": "6"
+      },
+      "valid": true
+    },
+    {
+      "name": "string length over the literal",
+      "rules": {
+        "value": [
+          "string",
+          "gt:2"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gt"
+        ]
+      }
+    },
+    {
+      "name": "string length equal to the literal",
+      "rules": {
+        "value": [
+          "string",
+          "gt:3"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gt"
+        ]
+      }
+    },
+    {
+      "name": "array item count over the literal",
+      "rules": {
+        "value": [
+          "array",
+          "gt:1"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gt"
+        ]
+      }
+    },
+    {
+      "name": "number over the other field",
+      "rules": {
+        "other": [
+          "numeric"
+        ],
+        "value": [
+          "numeric",
+          "gt:other"
+        ]
+      },
+      "data": {
+        "other": 5,
+        "value": 6
+      },
+      "valid": true
+    },
+    {
+      "name": "number equal to the other field",
+      "rules": {
+        "other": [
+          "numeric"
+        ],
+        "value": [
+          "numeric",
+          "gt:other"
+        ]
+      },
+      "data": {
+        "other": 5,
+        "value": 5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gt"
+        ]
+      }
+    },
+    {
+      "name": "string longer than the other field",
+      "rules": {
+        "value": [
+          "gt:other"
+        ]
+      },
+      "data": {
+        "other": "ab",
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "array larger than the other field",
+      "rules": {
+        "value": [
+          "gt:other"
+        ]
+      },
+      "data": {
+        "other": [
+          "a"
+        ],
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "number compared with a string field",
+      "rules": {
+        "value": [
+          "gt:other"
+        ]
+      },
+      "data": {
+        "other": "ab",
+        "value": 5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gt"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing",
+      "rules": {
+        "value": [
+          "numeric",
+          "gt:other"
+        ]
+      },
+      "data": {
+        "value": 5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gt"
+        ]
+      }
+    }
+  ]
+}

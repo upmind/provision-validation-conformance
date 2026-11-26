@@ -1,0 +1,177 @@
+{
+  "rule": "digits",
+  "cases": [
+    {
+      "name": "string with the exact number of digits",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": "1234"
+      },
+      "valid": true
+    },
+    {
+      "name": "integer with the exact number of digits",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": 1234
+      },
+      "valid": true
+    },
+    {
+      "name": "leading zeros count",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": "0012"
+      },
+      "valid": true
+    },
+    {
+      "name": "too few digits",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": "123"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits"
+        ]
+      }
+    },
+    {
+      "name": "too many digits",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": "12345"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits"
+        ]
+      }
+    },
+    {
+      "name": "negative number",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": "-123"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits"
+        ]
+      }
+    },
+    {
+      "name": "decimal point",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": "12.3"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits"
+        ]
+      }
+    },
+    {
+      "name": "letters",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": "12a4"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits"
+        ]
+      }
+    },
+    {
+      "name": "number with a decimal part",
+      "rules": {
+        "value": [
+          "digits:2"
+        ]
+      },
+      "data": {
+        "value": 1.5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "digits:4"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits"
+        ]
+      }
+    },
+    {
+      "name": "boolean value",
+      "rules": {
+        "value": [
+          "digits:1"
+        ]
+      },
+      "data": {
+        "value": true
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits"
+        ]
+      }
+    }
+  ]
+}

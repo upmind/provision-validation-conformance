@@ -1,0 +1,134 @@
+{
+  "rule": "doesnt_contain",
+  "cases": [
+    {
+      "name": "array does not contain the value",
+      "rules": {
+        "value": [
+          "doesnt_contain:a"
+        ]
+      },
+      "data": {
+        "value": [
+          "b",
+          "c"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "array contains the value",
+      "rules": {
+        "value": [
+          "doesnt_contain:a"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_contain"
+        ]
+      }
+    },
+    {
+      "name": "array contains one of the values",
+      "rules": {
+        "value": [
+          "doesnt_contain:a,d"
+        ]
+      },
+      "data": {
+        "value": [
+          "d"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_contain"
+        ]
+      }
+    },
+    {
+      "name": "value in another case",
+      "rules": {
+        "value": [
+          "doesnt_contain:a"
+        ]
+      },
+      "data": {
+        "value": [
+          "A"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "integer item and string parameter",
+      "rules": {
+        "value": [
+          "doesnt_contain:1"
+        ]
+      },
+      "data": {
+        "value": [
+          1,
+          2
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "value": [
+          "doesnt_contain:a"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": true
+    },
+    {
+      "name": "string value",
+      "rules": {
+        "value": [
+          "doesnt_contain:a"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_contain"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "doesnt_contain:a"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_contain"
+        ]
+      }
+    }
+  ]
+}

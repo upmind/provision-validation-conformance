@@ -1,0 +1,163 @@
+{
+  "rule": "gte",
+  "cases": [
+    {
+      "name": "number over the literal",
+      "rules": {
+        "value": [
+          "numeric",
+          "gte:5"
+        ]
+      },
+      "data": {
+        "value": 6
+      },
+      "valid": true
+    },
+    {
+      "name": "number equal to the literal",
+      "rules": {
+        "value": [
+          "numeric",
+          "gte:5"
+        ]
+      },
+      "data": {
+        "value": 5
+      },
+      "valid": true
+    },
+    {
+      "name": "number under the literal",
+      "rules": {
+        "value": [
+          "numeric",
+          "gte:5"
+        ]
+      },
+      "data": {
+        "value": 4
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gte"
+        ]
+      }
+    },
+    {
+      "name": "string length equal to the literal",
+      "rules": {
+        "value": [
+          "string",
+          "gte:3"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gte"
+        ]
+      }
+    },
+    {
+      "name": "string length under the literal",
+      "rules": {
+        "value": [
+          "string",
+          "gte:4"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gte"
+        ]
+      }
+    },
+    {
+      "name": "array item count equal to the literal",
+      "rules": {
+        "value": [
+          "array",
+          "gte:2"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gte"
+        ]
+      }
+    },
+    {
+      "name": "number equal to the other field",
+      "rules": {
+        "other": [
+          "numeric"
+        ],
+        "value": [
+          "numeric",
+          "gte:other"
+        ]
+      },
+      "data": {
+        "other": 5,
+        "value": 5
+      },
+      "valid": true
+    },
+    {
+      "name": "number under the other field",
+      "rules": {
+        "other": [
+          "numeric"
+        ],
+        "value": [
+          "numeric",
+          "gte:other"
+        ]
+      },
+      "data": {
+        "other": 5,
+        "value": 4
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gte"
+        ]
+      }
+    },
+    {
+      "name": "number compared with a string field",
+      "rules": {
+        "value": [
+          "gte:other"
+        ]
+      },
+      "data": {
+        "other": "ab",
+        "value": 5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "gte"
+        ]
+      }
+    }
+  ]
+}

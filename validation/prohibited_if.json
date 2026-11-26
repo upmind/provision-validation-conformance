@@ -1,0 +1,109 @@
+{
+  "rule": "prohibited_if",
+  "cases": [
+    {
+      "name": "other field matches and field is missing",
+      "rules": {
+        "value": [
+          "prohibited_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and field is an empty string",
+      "rules": {
+        "value": [
+          "prohibited_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": ""
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and field is set",
+      "rules": {
+        "value": [
+          "prohibited_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibited_if"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and field is set",
+      "rules": {
+        "value": [
+          "prohibited_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing and field is set",
+      "rules": {
+        "value": [
+          "prohibited_if:type,a"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches one of several values",
+      "rules": {
+        "value": [
+          "prohibited_if:type,a,b"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibited_if"
+        ]
+      }
+    },
+    {
+      "name": "boolean other field true matches parameter true",
+      "rules": {
+        "value": [
+          "prohibited_if:flag,true"
+        ]
+      },
+      "data": {
+        "flag": true,
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibited_if"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "rule": "missing_with_all",
+  "cases": [
+    {
+      "name": "all other fields are set and field is missing",
+      "rules": {
+        "value": [
+          "missing_with_all:a,b"
+        ]
+      },
+      "data": {
+        "a": "x",
+        "b": "y"
+      },
+      "valid": true
+    },
+    {
+      "name": "all other fields are set and field is set",
+      "rules": {
+        "value": [
+          "missing_with_all:a,b"
+        ]
+      },
+      "data": {
+        "a": "x",
+        "b": "y",
+        "value": "z"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_with_all"
+        ]
+      }
+    },
+    {
+      "name": "one other field is set and field is set",
+      "rules": {
+        "value": [
+          "missing_with_all:a,b"
+        ]
+      },
+      "data": {
+        "a": "x",
+        "value": "z"
+      },
+      "valid": true
+    },
+    {
+      "name": "no other field is set and field is set",
+      "rules": {
+        "value": [
+          "missing_with_all:a,b"
+        ]
+      },
+      "data": {
+        "value": "z"
+      },
+      "valid": true
+    }
+  ]
+}

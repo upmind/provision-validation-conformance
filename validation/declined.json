@@ -1,0 +1,194 @@
+{
+  "rule": "declined",
+  "cases": [
+    {
+      "name": "boolean false",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": false
+      },
+      "valid": true
+    },
+    {
+      "name": "string no",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": "no"
+      },
+      "valid": true
+    },
+    {
+      "name": "string off",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": "off"
+      },
+      "valid": true
+    },
+    {
+      "name": "integer 0",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": 0
+      },
+      "valid": true
+    },
+    {
+      "name": "string 0",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": "0"
+      },
+      "valid": true
+    },
+    {
+      "name": "string false",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": "false"
+      },
+      "valid": true
+    },
+    {
+      "name": "boolean true",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": true
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined"
+        ]
+      }
+    },
+    {
+      "name": "string yes",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": "yes"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined"
+        ]
+      }
+    },
+    {
+      "name": "upper case string NO",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": "NO"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined"
+        ]
+      }
+    },
+    {
+      "name": "missing field",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {},
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined"
+        ]
+      }
+    },
+    {
+      "name": "empty string",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": ""
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined"
+        ]
+      }
+    },
+    {
+      "name": "string n",
+      "rules": {
+        "value": [
+          "declined"
+        ]
+      },
+      "data": {
+        "value": "n"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "declined"
+        ]
+      }
+    }
+  ]
+}

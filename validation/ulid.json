@@ -1,0 +1,148 @@
+{
+  "rule": "ulid",
+  "cases": [
+    {
+      "name": "upper case ULID",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": "01ARZ3NDEKTSV4RRFFQ69G5FAV"
+      },
+      "valid": true
+    },
+    {
+      "name": "lower case ULID",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": "01arz3ndektsv4rrffq69g5fav"
+      },
+      "valid": true
+    },
+    {
+      "name": "too short",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": "01ARZ3NDEKTSV4RRFFQ69G5FA"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ulid"
+        ]
+      }
+    },
+    {
+      "name": "too long",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": "01ARZ3NDEKTSV4RRFFQ69G5FAVV"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ulid"
+        ]
+      }
+    },
+    {
+      "name": "letter outside the alphabet",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": "01ARZ3NDEKTSV4RRFFQ69G5FAU"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ulid"
+        ]
+      }
+    },
+    {
+      "name": "first character over 7",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": "81ARZ3NDEKTSV4RRFFQ69G5FAV"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ulid"
+        ]
+      }
+    },
+    {
+      "name": "UUID",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": "9b2d0b6e-4c3a-4f5e-8a1b-2c3d4e5f6a7b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ulid"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ulid"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "ulid"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ulid"
+        ]
+      }
+    }
+  ]
+}

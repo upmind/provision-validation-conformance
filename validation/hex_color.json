@@ -1,0 +1,167 @@
+{
+  "rule": "hex_color",
+  "cases": [
+    {
+      "name": "six digits",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "#a1b2c3"
+      },
+      "valid": true
+    },
+    {
+      "name": "three digits",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "#abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "upper case",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "#ABCDEF"
+      },
+      "valid": true
+    },
+    {
+      "name": "eight digits with alpha",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "#a1b2c3d4"
+      },
+      "valid": true
+    },
+    {
+      "name": "four digits with alpha",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "#abcd"
+      },
+      "valid": true
+    },
+    {
+      "name": "five digits",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "#abcde"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "hex_color"
+        ]
+      }
+    },
+    {
+      "name": "no hash",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "a1b2c3"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "hex_color"
+        ]
+      }
+    },
+    {
+      "name": "letter outside hex",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "#ggg"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "hex_color"
+        ]
+      }
+    },
+    {
+      "name": "colour name",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": "red"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "hex_color"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "hex_color"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "hex_color"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "hex_color"
+        ]
+      }
+    }
+  ]
+}

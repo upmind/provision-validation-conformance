@@ -1,0 +1,117 @@
+{
+  "rule": "present_if",
+  "cases": [
+    {
+      "name": "other field matches and field is set",
+      "rules": {
+        "value": [
+          "present_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and field is null",
+      "rules": {
+        "value": [
+          "present_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": null
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and field is an empty string",
+      "rules": {
+        "value": [
+          "present_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": ""
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and field is missing",
+      "rules": {
+        "value": [
+          "present_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_if"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and field is missing",
+      "rules": {
+        "value": [
+          "present_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing and field is missing",
+      "rules": {
+        "value": [
+          "present_if:type,a"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "other field matches one of several values",
+      "rules": {
+        "value": [
+          "present_if:type,a,b"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_if"
+        ]
+      }
+    },
+    {
+      "name": "boolean other field true matches parameter true",
+      "rules": {
+        "value": [
+          "present_if:flag,true"
+        ]
+      },
+      "data": {
+        "flag": true
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_if"
+        ]
+      }
+    }
+  ]
+}

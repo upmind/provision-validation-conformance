@@ -1,0 +1,120 @@
+{
+  "rule": "different",
+  "cases": [
+    {
+      "name": "different strings",
+      "rules": {
+        "value": [
+          "different:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "b"
+      },
+      "valid": true
+    },
+    {
+      "name": "equal strings",
+      "rules": {
+        "value": [
+          "different:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "different"
+        ]
+      }
+    },
+    {
+      "name": "strings in another case",
+      "rules": {
+        "value": [
+          "different:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "A"
+      },
+      "valid": true
+    },
+    {
+      "name": "integer and numeric string",
+      "rules": {
+        "value": [
+          "different:other"
+        ]
+      },
+      "data": {
+        "other": 1,
+        "value": "1"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing",
+      "rules": {
+        "value": [
+          "different:other"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "different from both other fields",
+      "rules": {
+        "value": [
+          "different:a,b"
+        ]
+      },
+      "data": {
+        "a": "x",
+        "b": "y",
+        "value": "z"
+      },
+      "valid": true
+    },
+    {
+      "name": "equal to one of two other fields",
+      "rules": {
+        "value": [
+          "different:a,b"
+        ]
+      },
+      "data": {
+        "a": "x",
+        "b": "y",
+        "value": "y"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "different"
+        ]
+      }
+    },
+    {
+      "name": "other field is null",
+      "rules": {
+        "value": [
+          "different:other"
+        ]
+      },
+      "data": {
+        "other": null,
+        "value": "a"
+      },
+      "valid": true
+    }
+  ]
+}

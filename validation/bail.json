@@ -1,0 +1,124 @@
+{
+  "rule": "bail",
+  "cases": [
+    {
+      "name": "valid value",
+      "rules": {
+        "value": [
+          "bail",
+          "integer",
+          "min:5"
+        ]
+      },
+      "data": {
+        "value": 10
+      },
+      "valid": true
+    },
+    {
+      "name": "first rule fails, later rules do not run",
+      "rules": {
+        "value": [
+          "bail",
+          "integer",
+          "min:5"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    },
+    {
+      "name": "without bail, all failed rules are reported",
+      "rules": {
+        "value": [
+          "integer",
+          "min:5"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer",
+          "min"
+        ]
+      }
+    },
+    {
+      "name": "first rule passes and second rule fails",
+      "rules": {
+        "value": [
+          "bail",
+          "string",
+          "min:5",
+          "alpha_num"
+        ]
+      },
+      "data": {
+        "value": "a-b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "min"
+        ]
+      }
+    },
+    {
+      "name": "bail is not the first rule",
+      "rules": {
+        "value": [
+          "integer",
+          "bail",
+          "min:5"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    },
+    {
+      "name": "bail applies to its own field only",
+      "rules": {
+        "a": [
+          "bail",
+          "integer",
+          "min:5"
+        ],
+        "b": [
+          "integer",
+          "min:5"
+        ]
+      },
+      "data": {
+        "a": "abc",
+        "b": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "a": [
+          "integer"
+        ],
+        "b": [
+          "integer",
+          "min"
+        ]
+      }
+    }
+  ]
+}

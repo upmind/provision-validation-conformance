@@ -1,0 +1,126 @@
+{
+  "rule": "min_digits",
+  "cases": [
+    {
+      "name": "digit count at the minimum",
+      "rules": {
+        "value": [
+          "min_digits:3"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": true
+    },
+    {
+      "name": "digit count over the minimum",
+      "rules": {
+        "value": [
+          "min_digits:3"
+        ]
+      },
+      "data": {
+        "value": "12345"
+      },
+      "valid": true
+    },
+    {
+      "name": "digit count under the minimum",
+      "rules": {
+        "value": [
+          "min_digits:3"
+        ]
+      },
+      "data": {
+        "value": 12
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "min_digits"
+        ]
+      }
+    },
+    {
+      "name": "leading zeros count",
+      "rules": {
+        "value": [
+          "min_digits:3"
+        ]
+      },
+      "data": {
+        "value": "001"
+      },
+      "valid": true
+    },
+    {
+      "name": "negative number",
+      "rules": {
+        "value": [
+          "min_digits:3"
+        ]
+      },
+      "data": {
+        "value": "-123"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "min_digits"
+        ]
+      }
+    },
+    {
+      "name": "decimal point",
+      "rules": {
+        "value": [
+          "min_digits:3"
+        ]
+      },
+      "data": {
+        "value": "12.3"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "min_digits"
+        ]
+      }
+    },
+    {
+      "name": "letters",
+      "rules": {
+        "value": [
+          "min_digits:3"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "min_digits"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "min_digits:3"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "min_digits"
+        ]
+      }
+    }
+  ]
+}

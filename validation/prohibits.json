@@ -1,0 +1,104 @@
+{
+  "rule": "prohibits",
+  "cases": [
+    {
+      "name": "field is set and other field is missing",
+      "rules": {
+        "value": [
+          "prohibits:other"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "field is set and other field is set",
+      "rules": {
+        "value": [
+          "prohibits:other"
+        ]
+      },
+      "data": {
+        "value": "x",
+        "other": "y"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibits"
+        ]
+      }
+    },
+    {
+      "name": "field is set and other field is null",
+      "rules": {
+        "value": [
+          "prohibits:other"
+        ]
+      },
+      "data": {
+        "value": "x",
+        "other": null
+      },
+      "valid": true
+    },
+    {
+      "name": "field is set and other field is an empty string",
+      "rules": {
+        "value": [
+          "prohibits:other"
+        ]
+      },
+      "data": {
+        "value": "x",
+        "other": ""
+      },
+      "valid": true
+    },
+    {
+      "name": "field is missing and other field is set",
+      "rules": {
+        "value": [
+          "prohibits:other"
+        ]
+      },
+      "data": {
+        "other": "y"
+      },
+      "valid": true
+    },
+    {
+      "name": "field is null and other field is set",
+      "rules": {
+        "value": [
+          "prohibits:other"
+        ]
+      },
+      "data": {
+        "value": null,
+        "other": "y"
+      },
+      "valid": true
+    },
+    {
+      "name": "field is set and one of two other fields is set",
+      "rules": {
+        "value": [
+          "prohibits:a,b"
+        ]
+      },
+      "data": {
+        "value": "x",
+        "b": "y"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibits"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "rule": "present_with_all",
+  "cases": [
+    {
+      "name": "all other fields are set and field is null",
+      "rules": {
+        "value": [
+          "present_with_all:a,b"
+        ]
+      },
+      "data": {
+        "a": "x",
+        "b": "y",
+        "value": null
+      },
+      "valid": true
+    },
+    {
+      "name": "all other fields are set and field is missing",
+      "rules": {
+        "value": [
+          "present_with_all:a,b"
+        ]
+      },
+      "data": {
+        "a": "x",
+        "b": "y"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_with_all"
+        ]
+      }
+    },
+    {
+      "name": "one other field is set and field is missing",
+      "rules": {
+        "value": [
+          "present_with_all:a,b"
+        ]
+      },
+      "data": {
+        "a": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "no other field is set and field is missing",
+      "rules": {
+        "value": [
+          "present_with_all:a,b"
+        ]
+      },
+      "data": {},
+      "valid": true
+    }
+  ]
+}

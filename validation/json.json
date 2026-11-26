@@ -1,0 +1,200 @@
+{
+  "rule": "json",
+  "cases": [
+    {
+      "name": "object",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "{\"a\":1}"
+      },
+      "valid": true
+    },
+    {
+      "name": "array",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "[1,2]"
+      },
+      "valid": true
+    },
+    {
+      "name": "quoted string",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "\"a\""
+      },
+      "valid": true
+    },
+    {
+      "name": "number",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "1"
+      },
+      "valid": true
+    },
+    {
+      "name": "literal null",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "null"
+      },
+      "valid": true
+    },
+    {
+      "name": "literal true",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "true"
+      },
+      "valid": true
+    },
+    {
+      "name": "unquoted text",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "json"
+        ]
+      }
+    },
+    {
+      "name": "trailing comma",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "[1,]"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "json"
+        ]
+      }
+    },
+    {
+      "name": "single quotes",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": "{'a':1}"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "json"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": 1
+      },
+      "valid": true
+    },
+    {
+      "name": "boolean value",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": true
+      },
+      "valid": true
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1
+        }
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "json"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "json"
+        ]
+      }
+    },
+    {
+      "name": "empty string",
+      "rules": {
+        "value": [
+          "json"
+        ]
+      },
+      "data": {
+        "value": ""
+      },
+      "valid": true
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "rule": "prohibited",
+  "cases": [
+    {
+      "name": "missing field",
+      "rules": {
+        "value": [
+          "prohibited"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "prohibited"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": true
+    },
+    {
+      "name": "empty string",
+      "rules": {
+        "value": [
+          "prohibited"
+        ]
+      },
+      "data": {
+        "value": ""
+      },
+      "valid": true
+    },
+    {
+      "name": "whitespace string",
+      "rules": {
+        "value": [
+          "prohibited"
+        ]
+      },
+      "data": {
+        "value": " "
+      },
+      "valid": true
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "value": [
+          "prohibited"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": true
+    },
+    {
+      "name": "string value",
+      "rules": {
+        "value": [
+          "prohibited"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibited"
+        ]
+      }
+    },
+    {
+      "name": "false value",
+      "rules": {
+        "value": [
+          "prohibited"
+        ]
+      },
+      "data": {
+        "value": false
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibited"
+        ]
+      }
+    },
+    {
+      "name": "zero",
+      "rules": {
+        "value": [
+          "prohibited"
+        ]
+      },
+      "data": {
+        "value": 0
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibited"
+        ]
+      }
+    }
+  ]
+}

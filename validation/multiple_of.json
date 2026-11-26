@@ -1,0 +1,179 @@
+{
+  "rule": "multiple_of",
+  "cases": [
+    {
+      "name": "integer multiple",
+      "rules": {
+        "value": [
+          "multiple_of:5"
+        ]
+      },
+      "data": {
+        "value": 10
+      },
+      "valid": true
+    },
+    {
+      "name": "numeric string multiple",
+      "rules": {
+        "value": [
+          "multiple_of:5"
+        ]
+      },
+      "data": {
+        "value": "15"
+      },
+      "valid": true
+    },
+    {
+      "name": "not a multiple",
+      "rules": {
+        "value": [
+          "multiple_of:5"
+        ]
+      },
+      "data": {
+        "value": 12
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "multiple_of"
+        ]
+      }
+    },
+    {
+      "name": "zero",
+      "rules": {
+        "value": [
+          "multiple_of:5"
+        ]
+      },
+      "data": {
+        "value": 0
+      },
+      "valid": true
+    },
+    {
+      "name": "negative multiple",
+      "rules": {
+        "value": [
+          "multiple_of:5"
+        ]
+      },
+      "data": {
+        "value": -10
+      },
+      "valid": true
+    },
+    {
+      "name": "decimal multiple of a decimal",
+      "rules": {
+        "value": [
+          "multiple_of:0.1"
+        ]
+      },
+      "data": {
+        "value": 0.3
+      },
+      "valid": true
+    },
+    {
+      "name": "decimal string multiple of a decimal",
+      "rules": {
+        "value": [
+          "multiple_of:0.25"
+        ]
+      },
+      "data": {
+        "value": "1.75"
+      },
+      "valid": true
+    },
+    {
+      "name": "decimal not a multiple of a decimal",
+      "rules": {
+        "value": [
+          "multiple_of:0.25"
+        ]
+      },
+      "data": {
+        "value": "1.8"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "multiple_of"
+        ]
+      }
+    },
+    {
+      "name": "decimal value for an integer parameter",
+      "rules": {
+        "value": [
+          "multiple_of:5"
+        ]
+      },
+      "data": {
+        "value": 7.5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "multiple_of"
+        ]
+      }
+    },
+    {
+      "name": "text",
+      "rules": {
+        "value": [
+          "multiple_of:5"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "multiple_of"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "multiple_of:5"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "multiple_of"
+        ]
+      }
+    },
+    {
+      "name": "parameter zero",
+      "rules": {
+        "value": [
+          "multiple_of:0"
+        ]
+      },
+      "data": {
+        "value": 5
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "multiple_of"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "rule": "before_or_equal",
+  "cases": [
+    {
+      "name": "date before the fixed date",
+      "rules": {
+        "value": [
+          "before_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-14"
+      },
+      "valid": true
+    },
+    {
+      "name": "date equal to the fixed date",
+      "rules": {
+        "value": [
+          "before_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15"
+      },
+      "valid": true
+    },
+    {
+      "name": "date after the fixed date",
+      "rules": {
+        "value": [
+          "before_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-16"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "before_or_equal"
+        ]
+      }
+    },
+    {
+      "name": "date equal to the other field",
+      "rules": {
+        "value": [
+          "before_or_equal:end"
+        ]
+      },
+      "data": {
+        "end": "2024-01-15",
+        "value": "2024-01-15"
+      },
+      "valid": true
+    },
+    {
+      "name": "date after the other field",
+      "rules": {
+        "value": [
+          "before_or_equal:end"
+        ]
+      },
+      "data": {
+        "end": "2024-01-15",
+        "value": "2024-01-16"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "before_or_equal"
+        ]
+      }
+    },
+    {
+      "name": "not a date",
+      "rules": {
+        "value": [
+          "before_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "before_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "before_or_equal"
+        ]
+      }
+    }
+  ]
+}
