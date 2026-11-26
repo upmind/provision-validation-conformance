@@ -45,36 +45,23 @@ Both packages have the same content and the same version.
 ```
 
 - `rule`: the canonical rule name. It is the same as the file name.
-- `name`: the case name. It is unique in the file.
+- `name`: the case name. It is unique in the file. `rule` and `name` together
+  identify the case.
 - `rules`: the rules of each field. Each value is a list of rule strings.
   Field names can use dot notation and `*` wildcards.
 - `data`: the input data. A field that is not in `data` is missing.
 - `valid`: whether the data passes all rules.
 - `failed`: for invalid cases only. The rules that fail, per field. The order
   is not significant.
-- `corrections`: optional. The versions on which the case fails. See below.
 
-## Corrections
+## Known differences
 
-Every case must pass on every supported version of
-`upmind/provision-provider-base`. A case may fail on a version only if it has
-a `corrections` entry for that version. The key is the version. The value says
-how that version differs.
+A case says what is correct. It does not say which implementations differ.
 
-```json
-"corrections": { "3.7": "v3.7 rejects country XK, because its ISO 3166 list does not include Kosovo." }
-```
+If an implementation cannot pass a case yet, its runner keeps a list of known
+differences. This package does not.
 
-Use a correction only if the expected behaviour corrects that version, e.g.
-newer phone number metadata or a bug fix.
-
-v3.7 is live. All current corrections are for v3.7:
-
-- `country_code` and `international_phone`: v3.7 rejects country `XK`.
-- `international_phone`: v3.7 does not report the failed rule. In one case,
-  v3.7 raises a PHP warning for an array value.
-- `upmind_nested_data_set`: v3.7 does not report the failed rules of nested
-  fields.
+Identify a case by `rule` and `name`, not by its position in the file.
 
 ## Rule names
 
@@ -104,9 +91,9 @@ For each case:
 3. The case conforms if the result equals `valid` and the failed rules equal
    `failed`. Ignore the order. A valid case has no failed rules. An error,
    e.g. an exception, does not conform.
-4. If the case has a `corrections` entry for your version, check that the case
-   does not conform. This finds entries that are out of date. Otherwise, check
-   that the case conforms.
+4. If the case is in your list of known differences, check that the case does
+   not conform. This finds entries that are out of date. Otherwise, check that
+   the case conforms.
 
 Also check that your list of supported rules equals the list of case files.
 
@@ -123,8 +110,8 @@ Also check that your list of supported rules equals the list of case files.
 
 3. Add a line to `CHANGELOG.md`.
 
-A new or changed case must pass on every supported version, or have a
-`corrections` entry for each version on which it fails.
+Do not rename a case without a reason. Runners refer to cases by `rule` and
+`name`.
 
 ## License
 
