@@ -130,9 +130,6 @@
         "contact.name": [
           "required"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 does not report nested data set failures in Validator::failed()."
       }
     },
     {
@@ -161,9 +158,6 @@
         "contact.email": [
           "email"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 does not report nested data set failures in Validator::failed()."
       }
     },
     {
@@ -189,9 +183,6 @@
         "contact.name": [
           "required"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 does not report nested data set failures in Validator::failed()."
       }
     },
     {
@@ -241,9 +232,6 @@
         "a.b.c": [
           "required"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 does not report nested data set failures in Validator::failed()."
       }
     }
   ]

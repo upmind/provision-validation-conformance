@@ -160,10 +160,7 @@
         "phone": "+38343201234",
         "country": "XK"
       },
-      "valid": true,
-      "corrections": {
-        "3.7": "v3.7 rejects country XK, because its ISO 3166 list does not include Kosovo."
-      }
+      "valid": true
     },
     {
       "name": "Kosovo mobile, national format with country XK",
@@ -176,10 +173,7 @@
         "phone": "043 201 234",
         "country": "XK"
       },
-      "valid": true,
-      "corrections": {
-        "3.7": "v3.7 rejects country XK, because its ISO 3166 list does not include Kosovo."
-      }
+      "valid": true
     },
     {
       "name": "Kosovo mobile with lower case country xk",
@@ -192,10 +186,7 @@
         "phone": "+38343201234",
         "country": "xk"
       },
-      "valid": true,
-      "corrections": {
-        "3.7": "v3.7 rejects country XK, because its ISO 3166 list does not include Kosovo."
-      }
+      "valid": true
     },
     {
       "name": "Monaco number in a range Kosovo used before +383",
@@ -263,9 +254,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -284,9 +272,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -321,9 +306,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -393,9 +375,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -414,9 +393,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -435,9 +411,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -455,9 +428,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -478,9 +448,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 raises a PHP warning for an array value. Laravel turns it into an ErrorException."
       }
     },
     {
@@ -499,9 +466,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -520,9 +484,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -558,9 +519,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -579,9 +537,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -600,9 +555,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -621,9 +573,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     },
     {
@@ -642,9 +591,6 @@
         "phone": [
           "international_phone"
         ]
-      },
-      "corrections": {
-        "3.7": "v3.7 adds the error message by hand, so Validator::failed() does not report international_phone."
       }
     }
   ]

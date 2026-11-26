@@ -1,12 +1,11 @@
 # Project conventions
 
 Read [README.md](README.md) before you change the package. It explains the
-case file format, corrections, determinism and how to add or change cases.
+case file format, determinism and how to add or change cases.
 
 - The package contains data, a schema and checks only. Do not add validator
   code.
-- Every case must pass on every supported version, or have a `corrections`
-  entry for each version on which it fails.
+- A case says what is correct. Do not record which implementations differ.
 - Keep `schema.json`, `scripts/check.mjs` and the README in agreement when the
   format changes.
 - Run `npm ci` and `npm test` before you commit.

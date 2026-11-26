@@ -9,7 +9,6 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIRECTORY = join(ROOT, 'validation');
 const ALIASES = { bool: 'boolean', int: 'integer' };
 const FIRST_KEYS = ['name', 'rules', 'data', 'valid'];
-const VERSION = /^[0-9]+(\.[0-9]+)*$/;
 
 /** Get the canonical name of a rule string: snake case, without parameters. */
 function ruleName(rule) {
@@ -83,16 +82,6 @@ for (const path of paths) {
 
     if ('failed' in c === c.valid) {
       error(`${label}: failed must be present only on invalid cases`);
-    }
-
-    for (const [version, text] of Object.entries(c.corrections ?? {})) {
-      if (!VERSION.test(version)) {
-        error(`${label}: corrections key "${version}" is not a version`);
-      }
-
-      if (typeof text !== 'string' || text.trim() === '') {
-        error(`${label}: corrections["${version}"] is empty`);
-      }
     }
 
     for (const rules of Object.values(c.rules)) {
