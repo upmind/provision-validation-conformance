@@ -4,7 +4,9 @@
 
 ## 1.0.0
 
-- Add the validation conformance cases and `schema.json` from
-  `upmind/provision-provider-base`.
-- Remove the case field `correction`.
-- Add the well-formedness checks (`npm test`).
+First release.
+
+- Validation conformance cases: one file per supported rule, as the shared
+  spec for every validator implementation.
+- `schema.json`: the JSON Schema of a case file.
+- Case file checks, run in CI.
