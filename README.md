@@ -54,15 +54,6 @@ Both packages have the same content and the same version.
 - `failed`: for invalid cases only. The rules that fail, per field. The order
   is not significant.
 
-## Known differences
-
-A case says what is correct. It does not say which implementations differ.
-
-If an implementation cannot pass a case yet, its runner keeps a list of known
-differences. This package does not.
-
-Identify a case by `rule` and `name`, not by its position in the file.
-
 ## Rule names
 
 A rule string is `name` or `name:parameters`. The canonical name is snake case.
@@ -91,9 +82,6 @@ For each case:
 3. The case conforms if the result equals `valid` and the failed rules equal
    `failed`. Ignore the order. A valid case has no failed rules. An error,
    e.g. an exception, does not conform.
-4. If the case is in your list of known differences, check that the case does
-   not conform. This finds entries that are out of date. Otherwise, check that
-   the case conforms.
 
 Also check that your list of supported rules equals the list of case files.
 
