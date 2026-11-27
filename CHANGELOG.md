@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.1.0
 
 - Add `rules.json`: the supported rules and their aliases.
 - Add cases for 75 more rules, e.g. `required_unless`, `between`, `after`,
