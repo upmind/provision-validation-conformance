@@ -1,0 +1,135 @@
+{
+  "rule": "not_in",
+  "cases": [
+    {
+      "name": "value not in the list",
+      "rules": {
+        "value": [
+          "not_in:a,b"
+        ]
+      },
+      "data": {
+        "value": "c"
+      },
+      "valid": true
+    },
+    {
+      "name": "value in the list",
+      "rules": {
+        "value": [
+          "not_in:a,b"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_in"
+        ]
+      }
+    },
+    {
+      "name": "value in another case",
+      "rules": {
+        "value": [
+          "not_in:a,b"
+        ]
+      },
+      "data": {
+        "value": "A"
+      },
+      "valid": true
+    },
+    {
+      "name": "integer value in the list",
+      "rules": {
+        "value": [
+          "not_in:1,2"
+        ]
+      },
+      "data": {
+        "value": 1
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_in"
+        ]
+      }
+    },
+    {
+      "name": "integer value not in the list",
+      "rules": {
+        "value": [
+          "not_in:1,2"
+        ]
+      },
+      "data": {
+        "value": 3
+      },
+      "valid": true
+    },
+    {
+      "name": "quoted item with a comma",
+      "rules": {
+        "value": [
+          "not_in:\"a,b\",c"
+        ]
+      },
+      "data": {
+        "value": "a,b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_in"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "not_in:a,b"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": true
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "not_in:a,b"
+        ]
+      },
+      "data": {
+        "value": [
+          "a"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "boolean true with item 1",
+      "rules": {
+        "value": [
+          "not_in:1"
+        ]
+      },
+      "data": {
+        "value": true
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "not_in"
+        ]
+      }
+    }
+  ]
+}

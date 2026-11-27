@@ -1,0 +1,100 @@
+{
+  "rule": "missing",
+  "cases": [
+    {
+      "name": "missing field",
+      "rules": {
+        "value": [
+          "missing"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "missing"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing"
+        ]
+      }
+    },
+    {
+      "name": "empty string",
+      "rules": {
+        "value": [
+          "missing"
+        ]
+      },
+      "data": {
+        "value": ""
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing"
+        ]
+      }
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "value": [
+          "missing"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing"
+        ]
+      }
+    },
+    {
+      "name": "string value",
+      "rules": {
+        "value": [
+          "missing"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing"
+        ]
+      }
+    },
+    {
+      "name": "false value",
+      "rules": {
+        "value": [
+          "missing"
+        ]
+      },
+      "data": {
+        "value": false
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing"
+        ]
+      }
+    }
+  ]
+}

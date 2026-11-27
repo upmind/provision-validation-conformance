@@ -1,0 +1,111 @@
+{
+  "rule": "after_or_equal",
+  "cases": [
+    {
+      "name": "date after the fixed date",
+      "rules": {
+        "value": [
+          "after_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-16"
+      },
+      "valid": true
+    },
+    {
+      "name": "date equal to the fixed date",
+      "rules": {
+        "value": [
+          "after_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15"
+      },
+      "valid": true
+    },
+    {
+      "name": "date before the fixed date",
+      "rules": {
+        "value": [
+          "after_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-14"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after_or_equal"
+        ]
+      }
+    },
+    {
+      "name": "date equal to the other field",
+      "rules": {
+        "value": [
+          "after_or_equal:start"
+        ]
+      },
+      "data": {
+        "start": "2024-01-15",
+        "value": "2024-01-15"
+      },
+      "valid": true
+    },
+    {
+      "name": "date before the other field",
+      "rules": {
+        "value": [
+          "after_or_equal:start"
+        ]
+      },
+      "data": {
+        "start": "2024-01-15",
+        "value": "2024-01-14"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after_or_equal"
+        ]
+      }
+    },
+    {
+      "name": "not a date",
+      "rules": {
+        "value": [
+          "after_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after_or_equal"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "after_or_equal:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "after_or_equal"
+        ]
+      }
+    }
+  ]
+}

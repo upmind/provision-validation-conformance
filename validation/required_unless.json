@@ -1,0 +1,234 @@
+{
+  "rule": "required_unless",
+  "cases": [
+    {
+      "name": "other field matches and field is missing",
+      "rules": {
+        "value": [
+          "required_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match and field is set",
+      "rules": {
+        "value": [
+          "required_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match and field is missing",
+      "rules": {
+        "value": [
+          "required_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and field is null",
+      "rules": {
+        "value": [
+          "required_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and field is an empty string",
+      "rules": {
+        "value": [
+          "required_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": ""
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and field is an empty array",
+      "rules": {
+        "value": [
+          "required_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": []
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing and field is missing",
+      "rules": {
+        "value": [
+          "required_unless:type,a"
+        ]
+      },
+      "data": {},
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing and field is set",
+      "rules": {
+        "value": [
+          "required_unless:type,a"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches one of several values",
+      "rules": {
+        "value": [
+          "required_unless:type,a,b"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches none of several values",
+      "rules": {
+        "value": [
+          "required_unless:type,a,b"
+        ]
+      },
+      "data": {
+        "type": "c"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_unless"
+        ]
+      }
+    },
+    {
+      "name": "boolean other field true matches parameter true",
+      "rules": {
+        "value": [
+          "required_unless:flag,true"
+        ]
+      },
+      "data": {
+        "flag": true
+      },
+      "valid": true
+    },
+    {
+      "name": "boolean other field false does not match parameter true",
+      "rules": {
+        "value": [
+          "required_unless:flag,true"
+        ]
+      },
+      "data": {
+        "flag": false
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_unless"
+        ]
+      }
+    },
+    {
+      "name": "integer other field matches string parameter",
+      "rules": {
+        "value": [
+          "required_unless:count,1"
+        ]
+      },
+      "data": {
+        "count": 1
+      },
+      "valid": true
+    },
+    {
+      "name": "null other field matches parameter null",
+      "rules": {
+        "value": [
+          "required_unless:type,null"
+        ]
+      },
+      "data": {
+        "type": null
+      },
+      "valid": true
+    },
+    {
+      "name": "missing other field matches parameter null",
+      "rules": {
+        "value": [
+          "required_unless:type,null"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "other field in nested data",
+      "rules": {
+        "value": [
+          "required_unless:options.type,a"
+        ]
+      },
+      "data": {
+        "options": {
+          "type": "a"
+        }
+      },
+      "valid": true
+    }
+  ]
+}

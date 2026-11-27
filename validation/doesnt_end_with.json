@@ -1,0 +1,128 @@
+{
+  "rule": "doesnt_end_with",
+  "cases": [
+    {
+      "name": "value does not end with the suffix",
+      "rules": {
+        "value": [
+          "doesnt_end_with:foo"
+        ]
+      },
+      "data": {
+        "value": "foobar"
+      },
+      "valid": true
+    },
+    {
+      "name": "value ends with the suffix",
+      "rules": {
+        "value": [
+          "doesnt_end_with:foo"
+        ]
+      },
+      "data": {
+        "value": "barfoo"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_end_with"
+        ]
+      }
+    },
+    {
+      "name": "value ends with one of two suffixes",
+      "rules": {
+        "value": [
+          "doesnt_end_with:foo,bar"
+        ]
+      },
+      "data": {
+        "value": "foobar"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_end_with"
+        ]
+      }
+    },
+    {
+      "name": "value ends with neither suffix",
+      "rules": {
+        "value": [
+          "doesnt_end_with:foo,bar"
+        ]
+      },
+      "data": {
+        "value": "baz"
+      },
+      "valid": true
+    },
+    {
+      "name": "suffix in another case",
+      "rules": {
+        "value": [
+          "doesnt_end_with:foo"
+        ]
+      },
+      "data": {
+        "value": "barFOO"
+      },
+      "valid": true
+    },
+    {
+      "name": "integer value ends with the suffix",
+      "rules": {
+        "value": [
+          "doesnt_end_with:23"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_end_with"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "doesnt_end_with:foo"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_end_with"
+        ]
+      }
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "doesnt_end_with:foo"
+        ]
+      },
+      "data": {
+        "value": [
+          "foo"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_end_with"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "rule": "distinct",
+  "cases": [
+    {
+      "name": "unique values",
+      "rules": {
+        "items.*": [
+          "distinct"
+        ]
+      },
+      "data": {
+        "items": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "duplicate values",
+      "rules": {
+        "items.*": [
+          "distinct"
+        ]
+      },
+      "data": {
+        "items": [
+          "a",
+          "b",
+          "a"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "items.0": [
+          "distinct"
+        ],
+        "items.2": [
+          "distinct"
+        ]
+      }
+    },
+    {
+      "name": "values in another case",
+      "rules": {
+        "items.*": [
+          "distinct"
+        ]
+      },
+      "data": {
+        "items": [
+          "a",
+          "A"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "values in another case with ignore_case",
+      "rules": {
+        "items.*": [
+          "distinct:ignore_case"
+        ]
+      },
+      "data": {
+        "items": [
+          "a",
+          "A"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "items.0": [
+          "distinct"
+        ],
+        "items.1": [
+          "distinct"
+        ]
+      }
+    },
+    {
+      "name": "integer and numeric string",
+      "rules": {
+        "items.*": [
+          "distinct"
+        ]
+      },
+      "data": {
+        "items": [
+          1,
+          "1"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "items.0": [
+          "distinct"
+        ],
+        "items.1": [
+          "distinct"
+        ]
+      }
+    },
+    {
+      "name": "integer and numeric string with strict",
+      "rules": {
+        "items.*": [
+          "distinct:strict"
+        ]
+      },
+      "data": {
+        "items": [
+          1,
+          "1"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "items.*": [
+          "distinct"
+        ]
+      },
+      "data": {
+        "items": []
+      },
+      "valid": true
+    },
+    {
+      "name": "unique values of a nested key",
+      "rules": {
+        "items.*.id": [
+          "distinct"
+        ]
+      },
+      "data": {
+        "items": [
+          {
+            "id": 1
+          },
+          {
+            "id": 2
+          }
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "duplicate values of a nested key",
+      "rules": {
+        "items.*.id": [
+          "distinct"
+        ]
+      },
+      "data": {
+        "items": [
+          {
+            "id": 1
+          },
+          {
+            "id": 1
+          }
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "items.0.id": [
+          "distinct"
+        ],
+        "items.1.id": [
+          "distinct"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "rule": "contains",
+  "cases": [
+    {
+      "name": "array contains the value",
+      "rules": {
+        "value": [
+          "contains:a"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "array contains all values",
+      "rules": {
+        "value": [
+          "contains:a,b"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "array does not contain one of the values",
+      "rules": {
+        "value": [
+          "contains:a,d"
+        ]
+      },
+      "data": {
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "contains"
+        ]
+      }
+    },
+    {
+      "name": "value in another case",
+      "rules": {
+        "value": [
+          "contains:a"
+        ]
+      },
+      "data": {
+        "value": [
+          "A"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "contains"
+        ]
+      }
+    },
+    {
+      "name": "integer item and string parameter",
+      "rules": {
+        "value": [
+          "contains:1"
+        ]
+      },
+      "data": {
+        "value": [
+          1,
+          2
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "value": [
+          "contains:a"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "contains"
+        ]
+      }
+    },
+    {
+      "name": "string value",
+      "rules": {
+        "value": [
+          "contains:a"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "contains"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "contains:a"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "contains"
+        ]
+      }
+    }
+  ]
+}

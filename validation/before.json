@@ -1,0 +1,153 @@
+{
+  "rule": "before",
+  "cases": [
+    {
+      "name": "date before the fixed date",
+      "rules": {
+        "value": [
+          "before:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-14"
+      },
+      "valid": true
+    },
+    {
+      "name": "date equal to the fixed date",
+      "rules": {
+        "value": [
+          "before:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "before"
+        ]
+      }
+    },
+    {
+      "name": "date after the fixed date",
+      "rules": {
+        "value": [
+          "before:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-16"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "before"
+        ]
+      }
+    },
+    {
+      "name": "date and time before the fixed date",
+      "rules": {
+        "value": [
+          "before:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-14 23:59:59"
+      },
+      "valid": true
+    },
+    {
+      "name": "date before the other field",
+      "rules": {
+        "value": [
+          "before:end"
+        ]
+      },
+      "data": {
+        "end": "2024-01-15",
+        "value": "2024-01-14"
+      },
+      "valid": true
+    },
+    {
+      "name": "date equal to the other field",
+      "rules": {
+        "value": [
+          "before:end"
+        ]
+      },
+      "data": {
+        "end": "2024-01-15",
+        "value": "2024-01-15"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "before"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing",
+      "rules": {
+        "value": [
+          "before:end"
+        ]
+      },
+      "data": {
+        "value": "2024-01-14"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "before"
+        ]
+      }
+    },
+    {
+      "name": "with date_format, date before the fixed date",
+      "rules": {
+        "value": [
+          "date_format:d/m/Y",
+          "before:15/01/2024"
+        ]
+      },
+      "data": {
+        "value": "14/01/2024"
+      },
+      "valid": true
+    },
+    {
+      "name": "not a date",
+      "rules": {
+        "value": [
+          "before:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "before:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "before"
+        ]
+      }
+    }
+  ]
+}

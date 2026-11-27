@@ -1,0 +1,174 @@
+{
+  "rule": "alpha",
+  "cases": [
+    {
+      "name": "letters",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": "abcXYZ"
+      },
+      "valid": true
+    },
+    {
+      "name": "non-ASCII letters",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": "héllo"
+      },
+      "valid": true
+    },
+    {
+      "name": "letters and digits",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": "abc1"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "alpha"
+        ]
+      }
+    },
+    {
+      "name": "letters and a space",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": "ab c"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "alpha"
+        ]
+      }
+    },
+    {
+      "name": "letters and a dash",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": "ab-c"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "alpha"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": 1
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "alpha"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "alpha"
+        ]
+      }
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": [
+          "a"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "alpha"
+        ]
+      }
+    },
+    {
+      "name": "empty string",
+      "rules": {
+        "value": [
+          "alpha"
+        ]
+      },
+      "data": {
+        "value": ""
+      },
+      "valid": true
+    },
+    {
+      "name": "ascii parameter with ASCII letters",
+      "rules": {
+        "value": [
+          "alpha:ascii"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "ascii parameter with non-ASCII letters",
+      "rules": {
+        "value": [
+          "alpha:ascii"
+        ]
+      },
+      "data": {
+        "value": "héllo"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "alpha"
+        ]
+      }
+    }
+  ]
+}

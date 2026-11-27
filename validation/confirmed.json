@@ -1,0 +1,165 @@
+{
+  "rule": "confirmed",
+  "cases": [
+    {
+      "name": "confirmation is equal",
+      "rules": {
+        "password": [
+          "confirmed"
+        ]
+      },
+      "data": {
+        "password": "secret",
+        "password_confirmation": "secret"
+      },
+      "valid": true
+    },
+    {
+      "name": "confirmation is different",
+      "rules": {
+        "password": [
+          "confirmed"
+        ]
+      },
+      "data": {
+        "password": "secret",
+        "password_confirmation": "other"
+      },
+      "valid": false,
+      "failed": {
+        "password": [
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "confirmation in another case",
+      "rules": {
+        "password": [
+          "confirmed"
+        ]
+      },
+      "data": {
+        "password": "secret",
+        "password_confirmation": "Secret"
+      },
+      "valid": false,
+      "failed": {
+        "password": [
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "confirmation is missing",
+      "rules": {
+        "password": [
+          "confirmed"
+        ]
+      },
+      "data": {
+        "password": "secret"
+      },
+      "valid": false,
+      "failed": {
+        "password": [
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "confirmation is null",
+      "rules": {
+        "password": [
+          "confirmed"
+        ]
+      },
+      "data": {
+        "password": "secret",
+        "password_confirmation": null
+      },
+      "valid": false,
+      "failed": {
+        "password": [
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "integer and numeric string",
+      "rules": {
+        "pin": [
+          "confirmed"
+        ]
+      },
+      "data": {
+        "pin": 1234,
+        "pin_confirmation": "1234"
+      },
+      "valid": false,
+      "failed": {
+        "pin": [
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "field is missing",
+      "rules": {
+        "password": [
+          "confirmed"
+        ]
+      },
+      "data": {
+        "password_confirmation": "secret"
+      },
+      "valid": true
+    },
+    {
+      "name": "custom confirmation field is equal",
+      "rules": {
+        "password": [
+          "confirmed:repeat"
+        ]
+      },
+      "data": {
+        "password": "secret",
+        "repeat": "secret"
+      },
+      "valid": true
+    },
+    {
+      "name": "custom confirmation field is different",
+      "rules": {
+        "password": [
+          "confirmed:repeat"
+        ]
+      },
+      "data": {
+        "password": "secret",
+        "repeat": "other"
+      },
+      "valid": false,
+      "failed": {
+        "password": [
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "nested field",
+      "rules": {
+        "user.password": [
+          "confirmed"
+        ]
+      },
+      "data": {
+        "user": {
+          "password": "secret",
+          "password_confirmation": "secret"
+        }
+      },
+      "valid": true
+    }
+  ]
+}

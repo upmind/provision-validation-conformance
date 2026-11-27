@@ -1,0 +1,143 @@
+{
+  "rule": "digits_between",
+  "cases": [
+    {
+      "name": "digit count in the range",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": "123"
+      },
+      "valid": true
+    },
+    {
+      "name": "digit count at the minimum",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": 12
+      },
+      "valid": true
+    },
+    {
+      "name": "digit count at the maximum",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": "1234"
+      },
+      "valid": true
+    },
+    {
+      "name": "digit count under the minimum",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": "1"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits_between"
+        ]
+      }
+    },
+    {
+      "name": "digit count over the maximum",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": "12345"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits_between"
+        ]
+      }
+    },
+    {
+      "name": "negative number",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": "-12"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits_between"
+        ]
+      }
+    },
+    {
+      "name": "decimal point",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": "1.2"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits_between"
+        ]
+      }
+    },
+    {
+      "name": "letters",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": "12a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits_between"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "digits_between:2,4"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "digits_between"
+        ]
+      }
+    }
+  ]
+}

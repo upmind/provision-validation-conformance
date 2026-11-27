@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add `rules.json`: the supported rules and their aliases.
+- Add cases for 75 more rules, e.g. `required_unless`, `between`, `after`,
+  `uuid` and `distinct`. The package now has 113 case files.
+
 ## 1.0.0
 
 First release.

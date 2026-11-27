@@ -1,0 +1,78 @@
+{
+  "rule": "prohibited_if_accepted",
+  "cases": [
+    {
+      "name": "other field is accepted and field is missing",
+      "rules": {
+        "value": [
+          "prohibited_if_accepted:terms"
+        ]
+      },
+      "data": {
+        "terms": true
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is true and field is set",
+      "rules": {
+        "value": [
+          "prohibited_if_accepted:terms"
+        ]
+      },
+      "data": {
+        "terms": true,
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibited_if_accepted"
+        ]
+      }
+    },
+    {
+      "name": "other field is string yes and field is set",
+      "rules": {
+        "value": [
+          "prohibited_if_accepted:terms"
+        ]
+      },
+      "data": {
+        "terms": "yes",
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "prohibited_if_accepted"
+        ]
+      }
+    },
+    {
+      "name": "other field is false and field is set",
+      "rules": {
+        "value": [
+          "prohibited_if_accepted:terms"
+        ]
+      },
+      "data": {
+        "terms": false,
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing and field is set",
+      "rules": {
+        "value": [
+          "prohibited_if_accepted:terms"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": true
+    }
+  ]
+}

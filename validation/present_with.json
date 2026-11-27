@@ -1,0 +1,92 @@
+{
+  "rule": "present_with",
+  "cases": [
+    {
+      "name": "other field is set and field is set",
+      "rules": {
+        "value": [
+          "present_with:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is set and field is null",
+      "rules": {
+        "value": [
+          "present_with:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": null
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is set and field is missing",
+      "rules": {
+        "value": [
+          "present_with:other"
+        ]
+      },
+      "data": {
+        "other": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_with"
+        ]
+      }
+    },
+    {
+      "name": "other field is null and field is missing",
+      "rules": {
+        "value": [
+          "present_with:other"
+        ]
+      },
+      "data": {
+        "other": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_with"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing and field is missing",
+      "rules": {
+        "value": [
+          "present_with:other"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "one of two other fields is set and field is missing",
+      "rules": {
+        "value": [
+          "present_with:a,b"
+        ]
+      },
+      "data": {
+        "b": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "present_with"
+        ]
+      }
+    }
+  ]
+}

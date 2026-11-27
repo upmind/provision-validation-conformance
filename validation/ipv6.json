@@ -1,0 +1,150 @@
+{
+  "rule": "ipv6",
+  "cases": [
+    {
+      "name": "compressed IPv6 address",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "2001:db8::1"
+      },
+      "valid": true
+    },
+    {
+      "name": "full IPv6 address",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "2001:0db8:0000:0000:0000:0000:0000:0001"
+      },
+      "valid": true
+    },
+    {
+      "name": "loopback",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "::1"
+      },
+      "valid": true
+    },
+    {
+      "name": "upper case",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "2001:DB8::1"
+      },
+      "valid": true
+    },
+    {
+      "name": "IPv4-mapped address",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "::ffff:192.0.2.1"
+      },
+      "valid": true
+    },
+    {
+      "name": "IPv4 address",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "192.0.2.1"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv6"
+        ]
+      }
+    },
+    {
+      "name": "two compressions",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "2001::db8::1"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv6"
+        ]
+      }
+    },
+    {
+      "name": "letter outside hex",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "2001:db8::g"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv6"
+        ]
+      }
+    },
+    {
+      "name": "address in brackets",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": "[2001:db8::1]"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv6"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "ipv6"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv6"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "rule": "exclude_if",
+  "cases": [
+    {
+      "name": "other field matches, later rules do not run",
+      "rules": {
+        "value": [
+          "exclude_if:type,a",
+          "integer"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches, required does not run",
+      "rules": {
+        "value": [
+          "exclude_if:type,a",
+          "required"
+        ]
+      },
+      "data": {
+        "type": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match, later rules run",
+      "rules": {
+        "value": [
+          "exclude_if:type,a",
+          "integer"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match, required runs",
+      "rules": {
+        "value": [
+          "exclude_if:type,a",
+          "required"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing, later rules run",
+      "rules": {
+        "value": [
+          "exclude_if:type,a",
+          "integer"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    },
+    {
+      "name": "other field matches one of several values",
+      "rules": {
+        "value": [
+          "exclude_if:type,a,b",
+          "integer"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "boolean other field true matches parameter true",
+      "rules": {
+        "value": [
+          "exclude_if:flag,true",
+          "integer"
+        ]
+      },
+      "data": {
+        "flag": true,
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "boolean other field false does not match parameter true",
+      "rules": {
+        "value": [
+          "exclude_if:flag,true",
+          "integer"
+        ]
+      },
+      "data": {
+        "flag": false,
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    }
+  ]
+}

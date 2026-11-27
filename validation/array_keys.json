@@ -1,0 +1,148 @@
+{
+  "rule": "array_keys",
+  "cases": [
+    {
+      "name": "array has only the allowed key",
+      "rules": {
+        "value": [
+          "array_keys:a"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "array has some of the allowed keys",
+      "rules": {
+        "value": [
+          "array_keys:a,b"
+        ]
+      },
+      "data": {
+        "value": {
+          "b": 1
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "array has all the allowed keys",
+      "rules": {
+        "value": [
+          "array_keys:a,b"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1,
+          "b": 2
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "array has another key",
+      "rules": {
+        "value": [
+          "array_keys:a,b"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1,
+          "c": 2
+        }
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "array_keys"
+        ]
+      }
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "value": [
+          "array_keys:a"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": true
+    },
+    {
+      "name": "list with an allowed numeric key",
+      "rules": {
+        "value": [
+          "array_keys:0"
+        ]
+      },
+      "data": {
+        "value": [
+          "x"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "list with a numeric key which is not allowed",
+      "rules": {
+        "value": [
+          "array_keys:0"
+        ]
+      },
+      "data": {
+        "value": [
+          "x",
+          "y"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "array_keys"
+        ]
+      }
+    },
+    {
+      "name": "string value",
+      "rules": {
+        "value": [
+          "array_keys:a"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "array_keys"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "array_keys:a"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "array_keys"
+        ]
+      }
+    }
+  ]
+}

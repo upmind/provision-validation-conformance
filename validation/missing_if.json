@@ -1,0 +1,96 @@
+{
+  "rule": "missing_if",
+  "cases": [
+    {
+      "name": "other field matches and field is missing",
+      "rules": {
+        "value": [
+          "missing_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and field is set",
+      "rules": {
+        "value": [
+          "missing_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_if"
+        ]
+      }
+    },
+    {
+      "name": "other field matches and field is null",
+      "rules": {
+        "value": [
+          "missing_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_if"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and field is set",
+      "rules": {
+        "value": [
+          "missing_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing and field is set",
+      "rules": {
+        "value": [
+          "missing_if:type,a"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches one of several values",
+      "rules": {
+        "value": [
+          "missing_if:type,a,b"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_if"
+        ]
+      }
+    }
+  ]
+}

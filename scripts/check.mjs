@@ -1,4 +1,5 @@
-// Checks that every case file is well formed. Exits with 1 on any error.
+// Checks that every case file is well formed and that rules.json agrees with
+// the case files. Exits with 1 on any error.
 
 import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -7,7 +8,8 @@ import Ajv2020 from 'ajv/dist/2020.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIRECTORY = join(ROOT, 'validation');
-const ALIASES = { bool: 'boolean', int: 'integer' };
+const RULES = JSON.parse(readFileSync(join(ROOT, 'rules.json'), 'utf8'));
+const ALIASES = RULES.aliases;
 const FIRST_KEYS = ['name', 'rules', 'data', 'valid'];
 
 /** Get the canonical name of a rule string: snake case, without parameters. */
@@ -94,10 +96,36 @@ for (const path of paths) {
   }
 }
 
+const isSorted = (list) => list.join() === [...list].sort().join();
+const supported = RULES.rules;
+const files = paths.map((path) => path.slice(0, -'.json'.length));
+
+if (!isSorted(supported)) {
+  errors.push('rules.json: rules is not sorted');
+}
+
+if (new Set(supported).size !== supported.length) {
+  errors.push('rules.json: a rule is listed twice');
+}
+
+for (const rule of supported.filter((rule) => !files.includes(rule))) {
+  errors.push(`rules.json: rule ${rule} has no case file`);
+}
+
+for (const rule of files.filter((rule) => !supported.includes(rule))) {
+  errors.push(`rules.json: ${rule}.json has cases, but the rule is not in rules`);
+}
+
+for (const [alias, rule] of Object.entries(RULES.aliases)) {
+  if (!supported.includes(rule) || supported.includes(alias)) {
+    errors.push(`rules.json: alias ${alias} must name a rule and must not be one`);
+  }
+}
+
 if (errors.length > 0) {
   console.error(errors.join('\n'));
   console.error(`\n${errors.length} error(s)`);
   process.exit(1);
 }
 
-console.log(`OK: ${paths.length} case files, ${caseCount} cases`);
+console.log(`OK: ${supported.length} supported rules, ${paths.length} case files, ${caseCount} cases`);

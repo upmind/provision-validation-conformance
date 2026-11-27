@@ -1,0 +1,76 @@
+{
+  "rule": "exclude_without",
+  "cases": [
+    {
+      "name": "other field is missing, later rules do not run",
+      "rules": {
+        "value": [
+          "exclude_without:other",
+          "integer"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing, required does not run",
+      "rules": {
+        "value": [
+          "exclude_without:other",
+          "required"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "other field is present, later rules run",
+      "rules": {
+        "value": [
+          "exclude_without:other",
+          "integer"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    },
+    {
+      "name": "other field is present and value is valid",
+      "rules": {
+        "value": [
+          "exclude_without:other",
+          "integer"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": 5
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is null, later rules do not run",
+      "rules": {
+        "value": [
+          "exclude_without:other",
+          "integer"
+        ]
+      },
+      "data": {
+        "other": null,
+        "value": "abc"
+      },
+      "valid": true
+    }
+  ]
+}

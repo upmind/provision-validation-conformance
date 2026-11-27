@@ -1,0 +1,173 @@
+{
+  "rule": "same",
+  "cases": [
+    {
+      "name": "equal strings",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "a"
+      },
+      "valid": true
+    },
+    {
+      "name": "different strings",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "b"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "same"
+        ]
+      }
+    },
+    {
+      "name": "strings in another case",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "other": "a",
+        "value": "A"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "same"
+        ]
+      }
+    },
+    {
+      "name": "integer and numeric string",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "other": 1,
+        "value": "1"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "same"
+        ]
+      }
+    },
+    {
+      "name": "equal integers",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "other": 1,
+        "value": 1
+      },
+      "valid": true
+    },
+    {
+      "name": "equal arrays",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "other": [
+          "a",
+          "b"
+        ],
+        "value": [
+          "a",
+          "b"
+        ]
+      },
+      "valid": true
+    },
+    {
+      "name": "arrays in another order",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "other": [
+          "a",
+          "b"
+        ],
+        "value": [
+          "b",
+          "a"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "same"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "same"
+        ]
+      }
+    },
+    {
+      "name": "both fields are null",
+      "rules": {
+        "value": [
+          "same:other"
+        ]
+      },
+      "data": {
+        "other": null,
+        "value": null
+      },
+      "valid": true
+    },
+    {
+      "name": "other field in nested data",
+      "rules": {
+        "value": [
+          "same:options.name"
+        ]
+      },
+      "data": {
+        "options": {
+          "name": "a"
+        },
+        "value": "a"
+      },
+      "valid": true
+    }
+  ]
+}

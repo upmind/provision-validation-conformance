@@ -1,0 +1,87 @@
+{
+  "rule": "encoding",
+  "cases": [
+    {
+      "name": "ASCII string as UTF-8",
+      "rules": {
+        "value": [
+          "encoding:utf-8"
+        ]
+      },
+      "data": {
+        "value": "hello"
+      },
+      "valid": true
+    },
+    {
+      "name": "non-ASCII string as UTF-8",
+      "rules": {
+        "value": [
+          "encoding:utf-8"
+        ]
+      },
+      "data": {
+        "value": "héllo"
+      },
+      "valid": true
+    },
+    {
+      "name": "ASCII string as ASCII",
+      "rules": {
+        "value": [
+          "encoding:ascii"
+        ]
+      },
+      "data": {
+        "value": "hello"
+      },
+      "valid": true
+    },
+    {
+      "name": "non-ASCII string as ASCII",
+      "rules": {
+        "value": [
+          "encoding:ascii"
+        ]
+      },
+      "data": {
+        "value": "héllo"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "encoding"
+        ]
+      }
+    },
+    {
+      "name": "non-ASCII string with an upper case encoding name",
+      "rules": {
+        "value": [
+          "encoding:ASCII"
+        ]
+      },
+      "data": {
+        "value": "héllo"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "encoding"
+        ]
+      }
+    },
+    {
+      "name": "ASCII string with an upper case encoding name",
+      "rules": {
+        "value": [
+          "encoding:UTF-8"
+        ]
+      },
+      "data": {
+        "value": "hello"
+      },
+      "valid": true
+    }
+  ]
+}

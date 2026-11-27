@@ -1,0 +1,125 @@
+{
+  "rule": "accepted_if",
+  "cases": [
+    {
+      "name": "other field matches and value is true",
+      "rules": {
+        "value": [
+          "accepted_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": true
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and value is string yes",
+      "rules": {
+        "value": [
+          "accepted_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": "yes"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches and value is false",
+      "rules": {
+        "value": [
+          "accepted_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": false
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "accepted_if"
+        ]
+      }
+    },
+    {
+      "name": "other field matches and field is missing",
+      "rules": {
+        "value": [
+          "accepted_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "accepted_if"
+        ]
+      }
+    },
+    {
+      "name": "other field matches and value is null",
+      "rules": {
+        "value": [
+          "accepted_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "accepted_if"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and value is false",
+      "rules": {
+        "value": [
+          "accepted_if:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": false
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing and field is missing",
+      "rules": {
+        "value": [
+          "accepted_if:type,a"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "other field matches one of several values",
+      "rules": {
+        "value": [
+          "accepted_if:type,a,b"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "no"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "accepted_if"
+        ]
+      }
+    }
+  ]
+}

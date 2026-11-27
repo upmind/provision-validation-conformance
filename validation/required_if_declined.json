@@ -1,0 +1,154 @@
+{
+  "rule": "required_if_declined",
+  "cases": [
+    {
+      "name": "other field is declined and field is set",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": false,
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is false and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": false
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_if_declined"
+        ]
+      }
+    },
+    {
+      "name": "other field is string no and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": "no"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_if_declined"
+        ]
+      }
+    },
+    {
+      "name": "other field is string off and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": "off"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_if_declined"
+        ]
+      }
+    },
+    {
+      "name": "other field is integer 0 and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": 0
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_if_declined"
+        ]
+      }
+    },
+    {
+      "name": "other field is string 0 and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": "0"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_if_declined"
+        ]
+      }
+    },
+    {
+      "name": "other field is string false and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": "false"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "required_if_declined"
+        ]
+      }
+    },
+    {
+      "name": "other field is true and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": true
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {},
+      "valid": true
+    },
+    {
+      "name": "other field is null and field is missing",
+      "rules": {
+        "value": [
+          "required_if_declined:terms"
+        ]
+      },
+      "data": {
+        "terms": null
+      },
+      "valid": true
+    }
+  ]
+}

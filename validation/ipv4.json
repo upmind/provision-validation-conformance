@@ -1,0 +1,148 @@
+{
+  "rule": "ipv4",
+  "cases": [
+    {
+      "name": "IPv4 address",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": "192.0.2.1"
+      },
+      "valid": true
+    },
+    {
+      "name": "all zeros",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": "0.0.0.0"
+      },
+      "valid": true
+    },
+    {
+      "name": "IPv6 address",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": "2001:db8::1"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv4"
+        ]
+      }
+    },
+    {
+      "name": "octet over 255",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": "192.0.2.256"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv4"
+        ]
+      }
+    },
+    {
+      "name": "three octets",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": "192.0.2"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv4"
+        ]
+      }
+    },
+    {
+      "name": "leading zero in an octet",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": "192.0.2.01"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv4"
+        ]
+      }
+    },
+    {
+      "name": "address with a prefix length",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": "192.0.2.0/24"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv4"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": 1
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv4"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "ipv4"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ipv4"
+        ]
+      }
+    }
+  ]
+}

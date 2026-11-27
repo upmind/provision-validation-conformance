@@ -1,0 +1,97 @@
+{
+  "rule": "exclude_unless",
+  "cases": [
+    {
+      "name": "other field matches, later rules run",
+      "rules": {
+        "value": [
+          "exclude_unless:type,a",
+          "integer"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    },
+    {
+      "name": "other field matches and value is valid",
+      "rules": {
+        "value": [
+          "exclude_unless:type,a",
+          "integer"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": 5
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match, later rules do not run",
+      "rules": {
+        "value": [
+          "exclude_unless:type,a",
+          "integer"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match, required does not run",
+      "rules": {
+        "value": [
+          "exclude_unless:type,a",
+          "required"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field is missing, later rules do not run",
+      "rules": {
+        "value": [
+          "exclude_unless:type,a",
+          "integer"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field matches one of several values",
+      "rules": {
+        "value": [
+          "exclude_unless:type,a,b",
+          "integer"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "integer"
+        ]
+      }
+    }
+  ]
+}

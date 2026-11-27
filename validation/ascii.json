@@ -1,0 +1,116 @@
+{
+  "rule": "ascii",
+  "cases": [
+    {
+      "name": "ASCII letters and symbols",
+      "rules": {
+        "value": [
+          "ascii"
+        ]
+      },
+      "data": {
+        "value": "Abc 123 !~"
+      },
+      "valid": true
+    },
+    {
+      "name": "non-ASCII letter",
+      "rules": {
+        "value": [
+          "ascii"
+        ]
+      },
+      "data": {
+        "value": "héllo"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "emoji",
+      "rules": {
+        "value": [
+          "ascii"
+        ]
+      },
+      "data": {
+        "value": "ok 👍"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "ascii"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "ascii"
+        ]
+      },
+      "data": {
+        "value": [
+          "a"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "ascii"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "empty string",
+      "rules": {
+        "value": [
+          "ascii"
+        ]
+      },
+      "data": {
+        "value": ""
+      },
+      "valid": true
+    }
+  ]
+}

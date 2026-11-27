@@ -1,0 +1,138 @@
+{
+  "rule": "lowercase",
+  "cases": [
+    {
+      "name": "lower case letters",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": true
+    },
+    {
+      "name": "lower case letters and digits",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": "abc123"
+      },
+      "valid": true
+    },
+    {
+      "name": "mixed case",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": "aBc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "lowercase"
+        ]
+      }
+    },
+    {
+      "name": "upper case",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": "ABC"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "lowercase"
+        ]
+      }
+    },
+    {
+      "name": "digits only",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": "123"
+      },
+      "valid": true
+    },
+    {
+      "name": "non-ASCII lower case",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": "é"
+      },
+      "valid": true
+    },
+    {
+      "name": "non-ASCII upper case",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": "É"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "lowercase"
+        ]
+      }
+    },
+    {
+      "name": "integer value",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "lowercase"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "lowercase"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "lowercase"
+        ]
+      }
+    }
+  ]
+}

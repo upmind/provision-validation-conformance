@@ -1,0 +1,83 @@
+{
+  "rule": "missing_unless",
+  "cases": [
+    {
+      "name": "other field matches and field is set",
+      "rules": {
+        "value": [
+          "missing_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "a",
+        "value": "x"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match and field is missing",
+      "rules": {
+        "value": [
+          "missing_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b"
+      },
+      "valid": true
+    },
+    {
+      "name": "other field does not match and field is set",
+      "rules": {
+        "value": [
+          "missing_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field does not match and field is null",
+      "rules": {
+        "value": [
+          "missing_unless:type,a"
+        ]
+      },
+      "data": {
+        "type": "b",
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_unless"
+        ]
+      }
+    },
+    {
+      "name": "other field is missing and field is set",
+      "rules": {
+        "value": [
+          "missing_unless:type,a"
+        ]
+      },
+      "data": {
+        "value": "x"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "missing_unless"
+        ]
+      }
+    }
+  ]
+}

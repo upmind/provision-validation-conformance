@@ -1,0 +1,140 @@
+{
+  "rule": "date_equals",
+  "cases": [
+    {
+      "name": "same date",
+      "rules": {
+        "value": [
+          "date_equals:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15"
+      },
+      "valid": true
+    },
+    {
+      "name": "same date in another format",
+      "rules": {
+        "value": [
+          "date_equals:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "15 January 2024"
+      },
+      "valid": true
+    },
+    {
+      "name": "same date with a time",
+      "rules": {
+        "value": [
+          "date_equals:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15 10:00:00"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "date_equals"
+        ]
+      }
+    },
+    {
+      "name": "same date at midnight",
+      "rules": {
+        "value": [
+          "date_equals:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-15 00:00:00"
+      },
+      "valid": true
+    },
+    {
+      "name": "another date",
+      "rules": {
+        "value": [
+          "date_equals:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "2024-01-16"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "date_equals"
+        ]
+      }
+    },
+    {
+      "name": "same date as the other field",
+      "rules": {
+        "value": [
+          "date_equals:other"
+        ]
+      },
+      "data": {
+        "other": "2024-01-15",
+        "value": "2024-01-15"
+      },
+      "valid": true
+    },
+    {
+      "name": "another date than the other field",
+      "rules": {
+        "value": [
+          "date_equals:other"
+        ]
+      },
+      "data": {
+        "other": "2024-01-15",
+        "value": "2024-01-16"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "date_equals"
+        ]
+      }
+    },
+    {
+      "name": "not a date",
+      "rules": {
+        "value": [
+          "date_equals:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": "abc"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "date_equals"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "date_equals:2024-01-15"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "date_equals"
+        ]
+      }
+    }
+  ]
+}

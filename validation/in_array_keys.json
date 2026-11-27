@@ -1,0 +1,118 @@
+{
+  "rule": "in_array_keys",
+  "cases": [
+    {
+      "name": "array has the key",
+      "rules": {
+        "value": [
+          "in_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": 1
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "array has one of the keys",
+      "rules": {
+        "value": [
+          "in_array_keys:a,b"
+        ]
+      },
+      "data": {
+        "value": {
+          "b": 1,
+          "c": 2
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "array has none of the keys",
+      "rules": {
+        "value": [
+          "in_array_keys:a,b"
+        ]
+      },
+      "data": {
+        "value": {
+          "c": 1
+        }
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array_keys"
+        ]
+      }
+    },
+    {
+      "name": "array has a key with a null value",
+      "rules": {
+        "value": [
+          "in_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": {
+          "a": null
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "empty array",
+      "rules": {
+        "value": [
+          "in_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": []
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array_keys"
+        ]
+      }
+    },
+    {
+      "name": "string value",
+      "rules": {
+        "value": [
+          "in_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": "a"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array_keys"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "in_array_keys:a"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "in_array_keys"
+        ]
+      }
+    }
+  ]
+}

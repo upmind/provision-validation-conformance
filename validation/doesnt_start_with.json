@@ -1,0 +1,128 @@
+{
+  "rule": "doesnt_start_with",
+  "cases": [
+    {
+      "name": "value does not start with the prefix",
+      "rules": {
+        "value": [
+          "doesnt_start_with:foo"
+        ]
+      },
+      "data": {
+        "value": "barfoo"
+      },
+      "valid": true
+    },
+    {
+      "name": "value starts with the prefix",
+      "rules": {
+        "value": [
+          "doesnt_start_with:foo"
+        ]
+      },
+      "data": {
+        "value": "foobar"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_start_with"
+        ]
+      }
+    },
+    {
+      "name": "value starts with one of two prefixes",
+      "rules": {
+        "value": [
+          "doesnt_start_with:foo,bar"
+        ]
+      },
+      "data": {
+        "value": "barfoo"
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_start_with"
+        ]
+      }
+    },
+    {
+      "name": "value starts with neither prefix",
+      "rules": {
+        "value": [
+          "doesnt_start_with:foo,bar"
+        ]
+      },
+      "data": {
+        "value": "baz"
+      },
+      "valid": true
+    },
+    {
+      "name": "prefix in another case",
+      "rules": {
+        "value": [
+          "doesnt_start_with:foo"
+        ]
+      },
+      "data": {
+        "value": "Foobar"
+      },
+      "valid": true
+    },
+    {
+      "name": "integer value starts with the prefix",
+      "rules": {
+        "value": [
+          "doesnt_start_with:12"
+        ]
+      },
+      "data": {
+        "value": 123
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_start_with"
+        ]
+      }
+    },
+    {
+      "name": "null value",
+      "rules": {
+        "value": [
+          "doesnt_start_with:foo"
+        ]
+      },
+      "data": {
+        "value": null
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_start_with"
+        ]
+      }
+    },
+    {
+      "name": "array value",
+      "rules": {
+        "value": [
+          "doesnt_start_with:foo"
+        ]
+      },
+      "data": {
+        "value": [
+          "foo"
+        ]
+      },
+      "valid": false,
+      "failed": {
+        "value": [
+          "doesnt_start_with"
+        ]
+      }
+    }
+  ]
+}
